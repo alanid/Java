@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class Address {
+    static String lastName = "";
+    static String firstName = "";
+    static String streetAddress = "";
+    static String city = "";
+    static String state = "";
+    static String zip = "";
+    public static void main(String[]args)
+    {
+    }
+    public String getAddress(String address)
+    {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Enter an address: ");
+        address = keyboard.nextLine();
+        int length = address.length();
+        int posLN = 0;
+        int posFN = 0;
+        for(int a = 0; a <= (length + 1); a++)
+        {
+            if (address.charAt(a) == ',')
+            {
+                lastName = address.substring(0, a+1);
+                posLN = address.indexOf(',');
+            }
+        }
+        for (int a = posLN; a <= (length + 1); a++)
+        {
+            if (address.charAt(a) == ',')
+            {
+                firstName = address.substring(posLN, a+1);
+                posFN = address.indexOf(',');
+            }
+        }
+    }
+}
